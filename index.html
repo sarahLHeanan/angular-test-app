@@ -12,7 +12,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
 	<!-- Optional theme -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous"> -->
 
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
@@ -28,26 +28,40 @@
 
 <!-- Bind module to html -->
 <body ng-app="myApp">
-	<!-- Bind controller to html -->
-	<div ng-controller="testController">
+	<section class="container">
+		<div class="row">
+			<!-- Bind controller to html -->
+			<div class="col-xs-12" ng-controller="testController">
 
-		<h1>My Organiser</h1>
-		<p>Please use the following app to build a to do list</p>
-		<p>Add items button will add items</p>
-		<p>Clear completed button will remove items</p><br>
+				<h1>My Organiser</h1>
+				<p>Please use the following app to build a to do list</p>
+				<p>Add items button will add items</p>
+				<p>Clear completed button will remove items</p><br>
 
-		<form name="frm" ng-submit="addToDo()">
-			<input type="text" name="newToDo" ng-model="newToDo" required>
-			<button ng-disabled="frm.$invalid">Add Item</button>
-			<button ng-click="removeToDo()">Clear Completed</button>
-		</form>
-		<ul class="list-unstyled">
-		    <li ng-repeat="todo in todos | orderBy: item">
-		    	<input type="checkbox" ng-model="todo.done" />
-		        <span ng-class="{'done':todo.done}">{{ todo.item }}</span>
-		    </li>
-		</ul>
-	</div>
+				<form name="frm" class="form-inline" ng-submit="addToDo()">
+					<div class="form-group">
+						<input class="form-control" type="text" name="newToDo" ng-model="newToDo" required>
+					</div>
+					<div class="form-group">
+						<button class="btn btn-primary" ng-disabled="frm.$invalid">Add Item</button>
+					</div>
+					<div class="form-group">
+						<button class="btn btn-default" ng-click="removeToDo()">Clear Completed</button>
+					</div>
+				</form>
+				<ul class="list-unstyled">
+				    <li ng-repeat="todo in todos | orderBy: item">
+				    	<div class="checkbox">
+						    <label>
+						    	<input type="checkbox" ng-model="todo.done" />
+				        		<span ng-class="{'done':todo.done}">{{ todo.item }}</span>
+						    </label>
+						</div>
+				    </li>
+				</ul>
+			</div>
+		</div>
+	</section
 
 </body>
 

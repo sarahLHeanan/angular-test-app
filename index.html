@@ -17,24 +17,34 @@
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
+	<style>
+		.done {
+			text-decoration: line-through;
+			color: #c0c0c0;
+		}
+	</style>
+
 </head>
 
 <!-- Bind module to html -->
 <body ng-app="myApp">
 	<!-- Bind controller to html -->
 	<div ng-controller="testController">
-		<p>
-			<span>{{message}}</span>
-		</p>
+
+		<h1>My Organiser</h1>
+		<p>Please use the following app to build a to do list</p>
+		<p>Add items button will add items</p>
+		<p>Clear completed button will remove items</p><br>
 
 		<form name="frm" ng-submit="addToDo()">
 			<input type="text" name="newToDo" ng-model="newToDo" required>
 			<button ng-disabled="frm.$invalid">Add Item</button>
-			<button ng-click="removeToDoo()">Clear Completed</button>
+			<button ng-click="removeToDo()">Clear Completed</button>
 		</form>
 		<ul class="list-unstyled">
-		    <li ng-repeat="item in todos | orderBy: item">
-		        <span class="">{{ item.item }}</span>
+		    <li ng-repeat="todo in todos | orderBy: item">
+		    	<input type="checkbox" ng-model="todo.done" />
+		        <span ng-class="{'done':todo.done}">{{ todo.item }}</span>
 		    </li>
 		</ul>
 	</div>

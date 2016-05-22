@@ -1,0 +1,5 @@
+/*Basic styles, the majority of styling is done in Bootstrap*/
+.done {
+	text-decoration: line-through;
+	color: #c0c0c0;
+}

@@ -1,1 +1,32 @@
-home page
+<div class="row">
+	<!-- Bind controller to html -->
+	<div class="col-xs-12" ng-controller="testController">
+
+		<h1>My Organiser</h1>
+		<p>Please use the following app to build a to do list</p>
+		<p>Add items button will add items</p>
+		<p>Clear completed button will remove items</p><br>
+
+		<form name="frm" class="form-inline" ng-submit="addToDo()">
+			<div class="form-group">
+				<input class="form-control" type="text" name="newToDo" ng-model="newToDo" required>
+			</div>
+			<div class="form-group">
+				<button class="btn btn-primary" ng-disabled="frm.$invalid">Add Item</button>
+			</div>
+			<div class="form-group">
+				<button class="btn btn-default" ng-click="removeToDo()">Clear Completed</button>
+			</div>
+		</form>
+		<ul class="list-unstyled">
+		    <li ng-repeat="todo in todos | orderBy: item">
+		    	<div class="checkbox">
+				    <label>
+				    	<input type="checkbox" ng-model="todo.done" />
+		        		<span ng-class="{'done':todo.done}">{{ todo.item }}</span>
+				    </label>
+				</div>
+		    </li>
+		</ul>
+	</div>
+</div>

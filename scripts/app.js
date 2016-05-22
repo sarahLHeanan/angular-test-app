@@ -1,5 +1,6 @@
 var app = angular.module('myApp', ['ngRoute']);
 
+// Routing configuration - control where view(s) loaded
 app.config(function($routeProvider) {
 	$routeProvider
 	.when('/', {
@@ -11,6 +12,7 @@ app.config(function($routeProvider) {
 	});
 });
 
+// Controller in which data is set and add/remove functions defined
 app.controller("testController", ['$scope', function($scope) {
 	$scope.message = 'this works';
 

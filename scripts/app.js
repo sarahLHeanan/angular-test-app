@@ -1,4 +1,14 @@
-var app = angular.module('myApp', []);
+var app = angular.module('myApp', ['ngRoute']);
+
+app.config(function($routeProvider) {
+	$routeProvider
+	.when('/', {
+		templateUrl: 'views/home.html'
+	})
+	.otherwise({
+		redirectTo: '/'
+	});
+});
 
 app.controller("testController", ['$scope', function($scope) {
 	$scope.message = 'this works';

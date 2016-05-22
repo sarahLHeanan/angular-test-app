@@ -13,7 +13,7 @@ To use this app, please do the following
 - Select checkbox beside item to mark as done
 - Click clear completed button to remove completed tasks
 
-Please note that this app must be loaded on a local server for routing to work
+Please note that this app must be loaded on a local server for routing to work.
 At the time of writing, an angular server has not yet been implemented but is 
 planned.
 
